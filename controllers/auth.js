@@ -32,7 +32,11 @@ export const register = async (req, res) => {
       impressions: Math.floor(Math.random() * 10000),
     });
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({
+      redirectTo: "/",
+      message: "User Registered Successfully!",
+      user: savedUser,
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
