@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const postSchema = mongoose.Schema(
+const schedulePostSchema = mongoose.Schema(
   {
     userId: {
       type: String,
@@ -26,14 +26,20 @@ const postSchema = mongoose.Schema(
       type: Array,
       default: [],
     },
+    scheduleTime: {
+      type: Date,
+    },
+    isSchedulePost: {
+      type: Boolean,
+    },
     postType: {
       type: String,
-      default: "D",
+      default: "S",
     },
   },
   { timestamps: true }
 );
 
-const Post = mongoose.model("Post", postSchema);
+const SchedulePost = mongoose.model("SchedulePost", schedulePostSchema);
 
-export default Post;
+export default SchedulePost;
